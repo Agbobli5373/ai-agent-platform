@@ -1,37 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Dashboard from './pages/Dashboard';
+import AgentBuilder from './pages/AgentBuilder';
+import ChatInterface from './pages/ChatInterface';
+import Marketplace from './pages/Marketplace';
 
 function App() {
-  const [count, setCount] = useState<number>(0)
-
   return (
-    <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center text-white">
-      <div className="flex gap-8 mb-8">
-        <a href="https://vite.dev" target="_blank" className="hover:opacity-80 transition-opacity">
-          <img src={viteLogo} className="h-24 w-24" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" className="hover:opacity-80 transition-opacity">
-          <img src={reactLogo} className="h-24 w-24 animate-spin-slow" alt="React logo" />
-        </a>
-      </div>
-      <h1 className="text-5xl font-bold mb-8">Vite + React</h1>
-      <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
-        <button 
-          onClick={() => setCount((count) => count + 1)}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors mb-4"
-        >
-          count is {count}
-        </button>
-        <p className="text-gray-300">
-          Edit <code className="bg-gray-700 px-2 py-1 rounded">src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="mt-8 text-gray-400">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/agent-builder" element={<AgentBuilder />} />
+        <Route path="/chat/:agentId" element={<ChatInterface />} />
+        <Route path="/marketplace" element={<Marketplace />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
