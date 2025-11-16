@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState<number>(0)
 
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center text-white">
@@ -24,7 +24,7 @@ function App() {
           count is {count}
         </button>
         <p className="text-gray-300">
-          Edit <code className="bg-gray-700 px-2 py-1 rounded">src/App.jsx</code> and save to test HMR
+          Edit <code className="bg-gray-700 px-2 py-1 rounded">src/App.tsx</code> and save to test HMR
         </p>
       </div>
       <p className="mt-8 text-gray-400">
